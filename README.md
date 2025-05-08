@@ -13,8 +13,19 @@ A monitoring tool for Web AI applications that exports system metrics to Prometh
 ## Setup
 
 1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the application: `python webai_monitoring.py`
+2. Create and activate a Python virtual environment:
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+4. Run the application:
+   ```sh
+   python webai_monitoring.py
+   ```
 
 ## Metrics
 

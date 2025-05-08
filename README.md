@@ -118,6 +118,7 @@ Once your Prometheus and WebAI Monitoring Exporter are running, you can visualiz
 2. **Log in to Grafana**
    - Open your browser and go to [http://localhost:3000/](http://localhost:3000/)
    - Default credentials: `admin` / `admin` (you will be prompted to change the password on first login)
+   - **You can skip setting a new Grafana username and password, but at your own peril!**
 
 3. **Add Prometheus as a Data Source**
    - Go to **Configuration > Data Sources**

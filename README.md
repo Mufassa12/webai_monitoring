@@ -101,6 +101,37 @@ scrape_configs:
   webai_system_uptime_seconds / 3600
   ```
 
+## Grafana Dashboard
+
+Once your Prometheus and WebAI Monitoring Exporter are running, you can visualize your metrics using Grafana.
+
+1. **Start Grafana** (if installed via Homebrew on macOS):
+   ```sh
+   brew services start grafana
+   ```
+   Or, if already running, restart with:
+   ```sh
+   brew services restart grafana
+   ```
+   The default Grafana URL is: [http://localhost:3000/](http://localhost:3000/)
+
+2. **Log in to Grafana**
+   - Open your browser and go to [http://localhost:3000/](http://localhost:3000/)
+   - Default credentials: `admin` / `admin` (you will be prompted to change the password on first login)
+
+3. **Add Prometheus as a Data Source**
+   - Go to **Configuration > Data Sources**
+   - Click **Add data source**
+   - Select **Prometheus**
+   - Set the URL to `http://localhost:9090` (or your Prometheus server address)
+   - Click **Save & Test**
+
+4. **Import or Create Dashboards**
+   - You can create your own dashboard and add panels using the metrics listed above.
+   - Or, import a community dashboard for Prometheus and customize it for your metrics.
+
+> For remote servers, replace `localhost` with your server's IP or hostname in the URLs above.
+
 ## Requirements
 
 - Python 3.8+

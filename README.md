@@ -52,6 +52,54 @@ Metrics are available at http://localhost:8000/metrics
 
 > **Note:** GPU and NPU metrics are simulated/estimated for Apple Silicon Macs. On Intel Macs, values are also simulated.
 
+## API Endpoints
+
+| Endpoint      | Description                                      |
+|--------------|--------------------------------------------------|
+| `/metrics`   | Prometheus metrics endpoint (text format)         |
+| `/health`    | Health check endpoint (returns JSON status)       |
+| `/`          | Home/info page with links to metrics and health   |
+
+## Example Prometheus Scrape Config
+
+Add this to your `prometheus.yml` scrape_configs:
+
+```yaml
+scrape_configs:
+  - job_name: 'webai_monitoring'
+    static_configs:
+      - targets: ['localhost:8000']
+```
+
+## Example Prometheus Queries
+
+- **CPU Usage:**
+  ```promql
+  webai_cpu_usage_percent
+  ```
+- **GPU Usage:**
+  ```promql
+  webai_gpu_usage_percent
+  ```
+- **NPU Usage:**
+  ```promql
+  webai_npu_usage_percent
+  ```
+- **System Uptime (hours):**
+  ```promql
+  webai_system_uptime_seconds / 3600
+  ```
+
+## Requirements
+
+- Python 3.8+
+- macOS (Apple Silicon or Intel; GPU/NPU metrics simulated on Intel)
+- [psutil](https://pypi.org/project/psutil/), [Flask](https://pypi.org/project/Flask/), [prometheus_client](https://pypi.org/project/prometheus_client/)
+
+## Issues / Contributing
+
+Feel free to open issues or submit pull requests for improvements!
+
 ## License
 
 Private repository - All rights reserved.
